@@ -1,0 +1,185 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    font-size: 14px;
+    font-family: Quotes, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.c-p {
+    cursor: pointer;
+}
+
+.page-full {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.over-y {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.over-x {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.no-warp {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.bg-gray {
+    background-color: #f8f8f8;
+}
+
+.bg-primary {
+    background-color: #BB16C9;
+}
+
+.c-white {
+    color: #fff;
+}
+
+.c-primary {
+    color: #BB16C9;
+}
+
+.c-gray {
+    color: #999;
+}
+
+.c-red {
+    color: #ff0000;
+}
+
+.c-green {
+    color: #26bd3b;
+}
+
+.f-b {
+    font-weight: bold;
+}
+
+.box-c {
+    border-radius: 50%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex-col {
+    flex-wrap: wrap;
+}
+
+// flex布局
+$flex: ( r: 'row', c: 'column', rr: 'row-reverse', cr: 'column-reverse');
+@each $key,
+$value in $flex {
+    .flex-#{$key} {
+        display: flex;
+        flex-direction: #{$value};
+    }
+}
+
+$jc: ( c: 'center', l: 'left', r: 'right', t: 'top', sb: 'space-between', fs:'flex-start');
+@each $key,
+$value in $jc {
+    .flex-jc-#{$key} {
+        justify-content: #{$value};
+    }
+    .flex-ai-#{$key} {
+        align-items: #{$value};
+    }
+    .flex-ac-#{$key} {
+        align-content: #{$value};
+    }
+}
+
+// 设置字体
+$i: 12;
+@while $i<=32 {
+    .f-#{$i} {
+        font-size: #{$i}px;
+    }
+    $i: $i+2;
+}
+
+// margin padding border
+$i: 0;
+$position: ( t: 'top', b: 'bottom', l: 'left', r: 'right');
+@while $i<=60 {
+    @each $key,
+    $value in $position {
+        .m-#{$key}-#{$i} {
+            margin-#{$value}: #{$i}px;
+        }
+        .p-#{$key}-#{$i} {
+            padding-#{$value}: #{$i}px;
+        }
+    }
+    .m-#{$i} {
+        margin: #{$i}px;
+    }
+    .p-#{$i} {
+        padding: #{$i}px;
+    }
+    .brd-#{$i} {
+        border-radius: #{$i}px;
+    }
+    $i: $i+4;
+}
+
+.brd-50 {
+    border-radius: 50%;
+}
+
+// border
+@each $key,
+$value in $position {
+    .b-#{$key}-1 {
+        border-#{$value}: 1px solid #eee;
+    }
+}
+
+.b-1 {
+    border: 1px solid #eee;
+}
+
+// width height 百分比
+$i: 5;
+@while $i<=100 {
+    .w-#{$i} {
+        width: #{$i}#{'%'};
+    }
+    .h-#{$i} {
+        height: #{$i}#{'%'};
+    }
+    $i: $i+5;
+}
+
+// width height px
+$i: 100;
+@while $i<=1000 {
+    .w-px-#{$i} {
+        width: #{$i}px;
+    }
+    .h-px-#{$i} {
+        height: #{$i}px;
+    }
+    $i: $i+5;
+}
